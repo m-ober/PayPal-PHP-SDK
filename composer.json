@@ -1,5 +1,5 @@
 {
-    "name": "paypal/rest-api-sdk-php",
+    "name": "protonlabs/paypal-rest-api-sdk-php",
     "description": "PayPal's PHP SDK for REST APIs",
     "keywords": ["paypal", "payments", "rest", "sdk"],
     "type": "library",
@@ -24,5 +24,8 @@
         "psr-0": {
             "PayPal": "lib/"
         }
+    },
+    "replace": {
+        "paypal/rest-api-sdk-php": "1.*"
     }
 }
