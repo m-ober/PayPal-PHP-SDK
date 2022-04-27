@@ -50,12 +50,10 @@ class ModelTest extends TestCase
         $this->assertNull($obj->getDescription());
     }
 
-    /**
-     * @expectedException        \InvalidArgumentException
-     * @expectedExceptionMessage Invalid JSON String
-     */
     public function testConstructorInvalidInput()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Invalid JSON String");
         new SimpleClass("Something that is not even correct");
     }
 
@@ -99,11 +97,11 @@ class ModelTest extends TestCase
         $this->assertEquals("test", $obj->getName());
         $this->assertEquals("description", $obj->getDescription());
         $resultJson = $obj->toJSON();
-        $this->assertContains("unknown", $resultJson);
-        $this->assertContains("id", $resultJson);
-        $this->assertContains("object", $resultJson);
-        $this->assertContains("123", $resultJson);
-        $this->assertContains("456", $resultJson);
+        $this->assertStringContainsString("unknown", $resultJson);
+        $this->assertStringContainsString("id", $resultJson);
+        $this->assertStringContainsString("object", $resultJson);
+        $this->assertStringContainsString("123", $resultJson);
+        $this->assertStringContainsString("456", $resultJson);
         PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'strict'));
     }
 
@@ -121,11 +119,11 @@ class ModelTest extends TestCase
         $this->assertEquals("test", $obj->getName());
         $this->assertEquals("description", $obj->getDescription());
         $resultJson = $obj->toJSON();
-        $this->assertContains("unknown", $resultJson);
-        $this->assertContains("id", $resultJson);
-        $this->assertContains("object", $resultJson);
-        $this->assertContains("123", $resultJson);
-        $this->assertContains("456", $resultJson);
+        $this->assertStringContainsString("unknown", $resultJson);
+        $this->assertStringContainsString("id", $resultJson);
+        $this->assertStringContainsString("object", $resultJson);
+        $this->assertStringContainsString("123", $resultJson);
+        $this->assertStringContainsString("456", $resultJson);
         PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'strict'));
     }
 
@@ -134,7 +132,7 @@ class ModelTest extends TestCase
         $json = '{"id":"PAY-5DW86196ER176274EKT3AEYA","transactions":[{"related_resources":[]}]}';
         $payment = new Payment($json);
         $result = $payment->toJSON();
-        $this->assertContains('"related_resources":[]', $result);
+        $this->assertStringContainsString('"related_resources":[]', $result);
         $this->assertNotNull($result);
     }
 
@@ -143,7 +141,7 @@ class ModelTest extends TestCase
         $json = '{"id":"PAY-5DW86196ER176274EKT3AEYA","transactions":[{"related_resources":[{},{}]}]}';
         $payment = new Payment($json);
         $result = $payment->toJSON();
-        $this->assertContains('"related_resources":[{},{}]', $result);
+        $this->assertStringContainsString('"related_resources":[{},{}]', $result);
         $this->assertNotNull($result);
     }
 
@@ -156,10 +154,10 @@ class ModelTest extends TestCase
         $obj->obj = '{}';
         $obj->objs = array('{}');
         $this->assertEquals("other", $obj->something);
-        $this->assertInternalType('array', $obj->else);
+        $this->assertIsArray($obj->else);
         $this->assertNull($obj->there);
         $this->assertEquals('{}', $obj->obj);
-        $this->assertInternalType('array', $obj->objs);
+        $this->assertIsArray($obj->objs);
         $this->assertEquals('{}', $obj->objs[0]);
     }
 

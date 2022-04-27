@@ -35,7 +35,6 @@ class UrlValidatorTest extends TestCase
     }
 
     /**
-     *
      * @dataProvider positiveProvider
      */
     public function testValidate($input)
@@ -44,12 +43,11 @@ class UrlValidatorTest extends TestCase
     }
 
     /**
-     *
      * @dataProvider invalidProvider
-     * @expectedException \InvalidArgumentException
      */
     public function testValidateException($input)
     {
+        $this->expectException(\InvalidArgumentException::class);
         UrlValidator::validate($input, "Test Value");
     }
 }

@@ -60,12 +60,10 @@ class FlowConfigTest extends TestCase
         $this->assertEquals($obj->getReturnUriHttpMethod(), "TestSample");
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage BankTxnPendingUrl is not a fully qualified URL
-     */
     public function testUrlValidationForBankTxnPendingUrl()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("BankTxnPendingUrl is not a fully qualified URL");
         $obj = new FlowConfig();
         $obj->setBankTxnPendingUrl(null);
     }

@@ -69,12 +69,10 @@ class IncentiveTest extends TestCase
         $this->assertEquals($obj->getTerms(), "TestSample");
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage LogoImageUrl is not a fully qualified URL
-     */
     public function testUrlValidationForLogoImageUrl()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("LogoImageUrl is not a fully qualified URL");
         $obj = new Incentive();
         $obj->setLogoImageUrl(null);
     }

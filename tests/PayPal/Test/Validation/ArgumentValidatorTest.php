@@ -42,10 +42,10 @@ class ArgumentValidatorTest extends TestCase
     /**
      *
      * @dataProvider invalidProvider
-     * @expectedException \InvalidArgumentException
      */
     public function testInvalidDataValidate($input)
     {
+        $this->expectException(\InvalidArgumentException::class);
         $this->assertTrue(ArgumentValidator::validate($input, "Name"));
     }
 }

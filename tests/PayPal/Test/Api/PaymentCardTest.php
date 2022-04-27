@@ -67,23 +67,23 @@ class PaymentCardTest extends TestCase
      */
     public function testGetters($obj)
     {
-        $this->assertEquals($obj->getId(), "TestSample");
-        $this->assertEquals($obj->getNumber(), "TestSample");
-        $this->assertEquals($obj->getType(), "TestSample");
-        $this->assertEquals($obj->getExpireMonth(), "TestSample");
-        $this->assertEquals($obj->getExpireYear(), "TestSample");
-        $this->assertEquals($obj->getStartMonth(), "TestSample");
-        $this->assertEquals($obj->getStartYear(), "TestSample");
-        $this->assertEquals($obj->getCvv2(), "TestSample");
-        $this->assertEquals($obj->getFirstName(), "TestSample");
-        $this->assertEquals($obj->getLastName(), "TestSample");
-        $this->assertEquals($obj->getBillingCountry(), "TestSample");
+        $this->assertSame($obj->getId(), "TestSample");
+        $this->assertSame($obj->getNumber(), "TestSample");
+        $this->assertSame($obj->getType(), "TestSample");
+        $this->assertSame($obj->getExpireMonth(), "123");
+        $this->assertSame($obj->getExpireYear(), "123");
+        $this->assertSame($obj->getStartMonth(), "TestSample");
+        $this->assertSame($obj->getStartYear(), "TestSample");
+        $this->assertSame($obj->getCvv2(), "TestSample");
+        $this->assertSame($obj->getFirstName(), "TestSample");
+        $this->assertSame($obj->getLastName(), "TestSample");
+        $this->assertSame($obj->getBillingCountry(), "TestSample");
         $this->assertEquals($obj->getBillingAddress(), AddressTest::getObject());
-        $this->assertEquals($obj->getExternalCustomerId(), "TestSample");
-        $this->assertEquals($obj->getStatus(), "TestSample");
-        $this->assertEquals($obj->getCardProductClass(), "TestSample");
-        $this->assertEquals($obj->getValidUntil(), "TestSample");
-        $this->assertEquals($obj->getIssueNumber(), "TestSample");
+        $this->assertSame($obj->getExternalCustomerId(), "TestSample");
+        $this->assertSame($obj->getStatus(), "TestSample");
+        $this->assertSame($obj->getCardProductClass(), "TestSample");
+        $this->assertSame($obj->getValidUntil(), "TestSample");
+        $this->assertSame($obj->getIssueNumber(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 }

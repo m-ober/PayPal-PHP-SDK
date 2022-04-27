@@ -89,12 +89,10 @@ class TemplateDataTest extends TestCase
         $this->assertEquals($obj->getAttachments(), FileAttachmentTest::getObject());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage LogoUrl is not a fully qualified URL
-     */
     public function testUrlValidationForLogoUrl()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("LogoUrl is not a fully qualified URL");
         $obj = new TemplateData();
         $obj->setLogoUrl(null);
     }
