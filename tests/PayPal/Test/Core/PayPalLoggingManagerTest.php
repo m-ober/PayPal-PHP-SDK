@@ -28,6 +28,8 @@ class PayPalLoggingManagerTest extends TestCase
     public function testError()
     {
         $this->object->error('Test Error Message');
+
+        $this->expectNotToPerformAssertions();
     }
 
     /**
@@ -36,6 +38,8 @@ class PayPalLoggingManagerTest extends TestCase
     public function testWarning()
     {
         $this->object->warning('Test Warning Message');
+
+        $this->expectNotToPerformAssertions();
     }
 
     /**
@@ -44,6 +48,8 @@ class PayPalLoggingManagerTest extends TestCase
     public function testInfo()
     {
         $this->object->info('Test info Message');
+
+        $this->expectNotToPerformAssertions();
     }
 
     /**
@@ -52,5 +58,7 @@ class PayPalLoggingManagerTest extends TestCase
     public function testFine()
     {
         $this->object->fine('Test fine Message');
+
+        $this->expectNotToPerformAssertions();
     }
 }

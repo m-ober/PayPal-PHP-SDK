@@ -50,5 +50,6 @@ class TransactionTest extends TestCase
      */
     public function testGetters($obj)
     {
+        $this->expectNotToPerformAssertions();
     }
 }
