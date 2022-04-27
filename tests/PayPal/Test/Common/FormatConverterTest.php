@@ -12,9 +12,6 @@ use PayPal\Converter\FormatConverter;
 use PayPal\Test\Validation\NumericValidatorTest;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @skip
- */
 class FormatConverterTest extends TestCase
 {
 
@@ -139,7 +136,6 @@ class FormatConverterTest extends TestCase
         $getter = "get" . $method;
         $result = $obj->$setter($values[0]);
         $this->assertEquals($values[1], $result->$getter());
-//        var_dump($values[1], $result->$getter());
     }
 
     /**
@@ -147,8 +143,6 @@ class FormatConverterTest extends TestCase
      */
     public function testSettersOfKnownApiModelInvalid($class, $methodName, $values)
     {
-        self::markTestSkipped('Invalid test');
-
         $this->expectException(\InvalidArgumentException::class);
         $obj = new $class();
         $setter = "set" . $methodName;

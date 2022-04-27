@@ -60,6 +60,8 @@ class AuthorizationCacheTest extends TestCase
         // 'cache.enabled' => true,
         AuthorizationCache::push(array('cache.enabled' => false), 'clientId', 'accessToken', 'tokenCreateTime', 'tokenExpiresIn');
         AuthorizationCache::pull(array('cache.enabled' => false), 'clientId');
+
+        $this->expectNotToPerformAssertions();
     }
 
     public function testCachePush()

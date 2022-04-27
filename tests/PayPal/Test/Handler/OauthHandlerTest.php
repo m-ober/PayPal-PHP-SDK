@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 class OauthHandlerTest extends TestCase
 {
-
     /**
      * @var \PayPal\Handler\OauthHandler
      */
@@ -51,10 +50,9 @@ class OauthHandlerTest extends TestCase
         );
     }
 
-
     /**
      * @dataProvider modeProvider
-     * @param $configs
+     * @param array $configs
      */
     public function testGetEndpoint($configs)
     {
@@ -66,5 +64,7 @@ class OauthHandlerTest extends TestCase
         $this->httpConfig = new PayPalHttpConfig(null, 'POST', $config);
         $this->handler = new OauthHandler($this->apiContext);
         $this->handler->handle($this->httpConfig, '', $this->config ?? []);
+
+        $this->expectNotToPerformAssertions();
     }
 }
