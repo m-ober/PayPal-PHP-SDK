@@ -76,6 +76,6 @@ class ItemListTest extends TestCase
 		$obj->removeItem($item2);
 		
 		$this->assertCount(2, $obj->getItems());
-		$this->assertContains('"items":[', $obj->toJSON());
+		$this->assertStringContainsString('"items":[', $obj->toJSON());
     }
 }

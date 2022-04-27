@@ -63,12 +63,10 @@ class WebhookTest extends TestCase
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Url is not a fully qualified URL
-     */
     public function testUrlValidationForUrl()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Url is not a fully qualified URL");
         $obj = new Webhook();
         $obj->setUrl(null);
     }

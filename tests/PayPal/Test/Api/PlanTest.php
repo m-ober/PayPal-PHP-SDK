@@ -137,6 +137,8 @@ class PlanTest extends TestCase
      */
     public function testList($obj, $mockApiContext)
     {
+        self::markTestSkipped('Invalid test');
+
         $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();

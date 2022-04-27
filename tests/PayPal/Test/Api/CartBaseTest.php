@@ -82,22 +82,18 @@ class CartBaseTest extends TestCase
         $this->assertEquals($obj->getExternalFunding(), ExternalFundingTest::getObject());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage NotifyUrl is not a fully qualified URL
-     */
     public function testUrlValidationForNotifyUrl()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("NotifyUrl is not a fully qualified URL");
         $obj = new CartBase();
         $obj->setNotifyUrl(null);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage OrderUrl is not a fully qualified URL
-     */
     public function testUrlValidationForOrderUrl()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("OrderUrl is not a fully qualified URL");
         $obj = new CartBase();
         $obj->setOrderUrl(null);
     }
