@@ -200,7 +200,7 @@ class PayPalHttpConnection
         $this->logger->debug("Response Headers\t: " . $this->implodeArray($this->responseHeaders));
 
         //Close the curl request
-        curl_close($ch);
+        unset($ch);
 
         //More Exceptions based on HttpStatus Code
         if ($httpStatus < 200 || $httpStatus >= 300) {
