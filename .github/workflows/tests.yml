@@ -30,7 +30,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Install dependencies with composer
-        run: composer i --no-interaction --no-progress --no-suggest
+        run: composer install --no-interaction --no-progress
 
       - name: Run PHPUnit
         run: ./vendor/bin/phpunit --testdox
