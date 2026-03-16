@@ -33,4 +33,4 @@ jobs:
         run: composer install --no-interaction --no-progress
 
       - name: Run PHPUnit
-        run: ./vendor/bin/phpunit --testdox --exclude-group integration
+        run: ./vendor/bin/phpunit --testdox

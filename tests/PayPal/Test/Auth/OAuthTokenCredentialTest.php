@@ -51,7 +51,7 @@ class OAuthTokenCredentialTest extends TestCase
         $cred = new OAuthTokenCredential('clientId', 'clientSecret');
 
         //{"clientId":{"clientId":"clientId","accessToken":"accessToken","tokenCreateTime":1421204091,"tokenExpiresIn":288000000}}
-        AuthorizationCache::push($config, 'clientId', $cred->encrypt('accessToken'), 1421204091, 288000000);
+        AuthorizationCache::push($config, 'clientId', $cred->encrypt('accessToken'), time(), 288000000);
 
         $apiContext = new ApiContext($cred);
         $apiContext->setConfig($config);
